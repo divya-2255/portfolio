@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Div | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation bar -->
+  <header class="site-header">
+    <a class="brand" href="#home">DIV / PORTFOLIO</a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button id="themeToggle" aria-label="Change theme">☼ / ☾</button>
+  </header>
+
+  <main>
+
+    <!-- Home section -->
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">HELLO, I’M</p>
+        <h1>Div.</h1>
+        <h2>Computer Science &amp; Statistics Student</h2>
+        <p>
+          I’m a first-year student passionate about technology,
+          problem solving and data. I enjoy building simple
+          web applications and learning new things every day.
+        </p>
+        <a class="button button-beige" href="#projects">View Projects</a>
+        <a class="button button-outline" href="resume.pdf" download>Download Resume</a>
+      </div>
+      <div class="hero-art">
+        <div class="portrait-halo">
+          <img class="portrait" src="images/me.jpg" alt="Portrait photo">
+        </div>
+        <p class="handwritten">Better Things Ahead</p>
+      </div>
+    </section>
+
+    <!-- About section -->
+    <section class="section" id="about">
+      <h2>About Me</h2>
+      <p>
+        I’m a first-year B.Sc. Computer Science and Statistics
+        student exploring programming, data and technology.
+      </p>
+      <div class="about-cards">
+        <div class="info-card">
+          <h3>Education</h3>
+          <p>B.Sc. Computer Science &amp; Statistics</p>
+          <p>Kristu Jayanti College</p>
+        </div>
+        <div class="info-card">
+          <h3>Interests</h3>
+          <p>Coding, data analysis, reading and art.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects section: the cards are loaded from MongoDB by script.js -->
+    <section class="section" id="projects">
+      <h2>My Projects</h2>
+      <p>Small projects are where big skills begin.</p>
+      <div class="project-grid" id="projectGrid">
+        <p>Loading projects...</p>
+      </div>
+    </section>
+
+    <!-- Skills section -->
+    <section class="section skills-section" id="skills">
+      <h2>My Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">HTML <p>Learning</p></div>
+        <div class="skill-card">CSS <p>Learning</p></div>
+        <div class="skill-card">JavaScript <p>Learning</p></div>
+        <div class="skill-card">C Programming <p>Learning</p></div>
+        <div class="skill-card">Statistics <p>Familiar</p></div>
+        <div class="skill-card">Node.js <p>Learning</p></div>
+        <div class="skill-card">MongoDB <p>Learning</p></div>
+      </div>
+    </section>
+
+    <!-- Resume section -->
+    <section class="resume-banner">
+      <h2>My Resume</h2>
+      <p>Learn more about my education and projects.</p>
+      <a class="button button-beige" href="resume.pdf" download>Download Resume</a>
+    </section>
+
+    <!-- Contact section: the message is saved in MongoDB by server.js -->
+    <section class="section" id="contact">
+      <h2>Get In Touch</h2>
+      <form id="contactForm" class="contact-form">
+        <label for="name">Name</label>
+        <input type="text" id="name">
+        <label for="email">Email</label>
+        <input type="text" id="email">
+        <label for="message">Message</label>
+        <textarea id="message" rows="5"></textarea>
+        <button type="submit" class="button button-beige">Send Message</button>
+        <p id="formMsg"></p>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>DIV / PORTFOLIO</p>
+    <p>Learn / Build / Grow</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
