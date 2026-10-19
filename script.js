@@ -16,37 +16,55 @@ if (localStorage.getItem("portfolio-theme") === "light") {
   document.body.classList.add("light-mode");
 }
 
-// 2. Load the projects from the server (they are stored in MongoDB)
+
+// 2. Load the projects
+// If the server is not running (like on GitHub Pages), use this backup list
+const backupProjects = [
+  {
+    title: "HTML Pages",
+    description: "Web pages made in class using HTML.",
+    technologies: ["HTML"]
+  },
+  {
+    title: "Simple Calculator",
+    description: "A simple calculator program made in class.",
+    technologies: ["C"]
+  }
+];
+
+function showProjects(projects) {
+  projectGrid.innerHTML = "";
+
+  projects.forEach(p => {
+    const card = document.createElement("article");
+    card.className = "project-card";
+
+    const title = document.createElement("h3");
+    title.textContent = p.title;
+
+    const description = document.createElement("p");
+    description.textContent = p.description;
+
+    card.appendChild(title);
+    card.appendChild(description);
+
+    p.technologies.forEach(t => {
+      const tag = document.createElement("span");
+      tag.textContent = t;
+      card.appendChild(tag);
+    });
+
+    projectGrid.appendChild(card);
+  });
+}
+
 async function loadProjects() {
   try {
     const res = await fetch("/projects");
     const projects = await res.json();
-
-    projectGrid.innerHTML = "";
-
-    projects.forEach(p => {
-      const card = document.createElement("article");
-      card.className = "project-card";
-
-      const title = document.createElement("h3");
-      title.textContent = p.title;
-
-      const description = document.createElement("p");
-      description.textContent = p.description;
-
-      card.appendChild(title);
-      card.appendChild(description);
-
-      p.technologies.forEach(t => {
-        const tag = document.createElement("span");
-        tag.textContent = t;
-        card.appendChild(tag);
-      });
-
-      projectGrid.appendChild(card);
-    });
+    showProjects(projects);       // projects from the server (MongoDB)
   } catch (err) {
-    projectGrid.textContent = "Could not load projects. Is the server running?";
+    showProjects(backupProjects); // server not running, use backup list
   }
 }
 
